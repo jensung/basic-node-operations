@@ -1,11 +1,7 @@
-// #1
- process.stdout.write('prompt > ');
+const commands = require("./commands.js");
 
-// #2
- process.stdin.on('data', (data) => {
-// #3
-   const cmd = data.toString().trim();
-
-   process.stdout.write('You typed: ' + cmd);
-   process.stdout.write('\nprompt > ');
- });
+process.stdout.write('prompt > ');
+process.stdin.on('data', (userInput) => {
+  userInput = userInput.toString().trim();
+  commands.evaluateCmd(userInput);
+});
